@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#070C1D"
+    android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save as (File Name)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp">
+
+            </TextView>
+            <EditText
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/rounded_bg_background"
+                android:layout_height="60dp"
+                android:padding="8dp"
+                android:textColor="#FB8C00"
+                android:hint="filename.mp4"
+                android:id="@+id/filename_edittext"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="filepath"
+                android:id="@+id/filepath"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp">
+
+            </TextView>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hdBtn"
+                android:layout_margin="15dp"
+                android:textColor="@color/white"
+                android:visibility="visible"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:drawableLeft="@drawable/ic_file_download_black_24dp"
+                android:background="@drawable/bg_parent_color_round_white"
+                android:text="Download HD"/>
+            <Button
+                android:textColor="@color/white"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sdBtn"
+                android:visibility="visible"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:drawableLeft="@drawable/ic_file_download_black_24dp"
+                android:background="@drawable/bg_parent_color_round_white"
+                android:text="Download SD"/>
+
+    <LinearLayout
+        android:id="@+id/banner_container2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" />
+        </LinearLayout>
