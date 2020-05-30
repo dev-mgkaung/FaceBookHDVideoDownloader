@@ -1,6 +1,6 @@
 # FaceBookHDVideoDownloader
 
-<img src="/app/src/main/res/drawable/app_icon.png"  align="left" hspace="20" height="150" width="150">
+<img src="/app/src/main/res/drawable/app_icon.png"  align="left" hspace="20" height="140" width="150">
 Facebook HD&SD Video Downloader Application 
 
 #### Are you looking for facebook HD downloader ?
