@@ -23,8 +23,7 @@ public class StreamVideo extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.video_view);
-        if (savedInstanceState != null)
-        {
+        if (savedInstanceState != null) {
             position = savedInstanceState.getInt("position");
         }
         this.VideoURL = getIntent().getStringExtra(TAG_VIDURL);
@@ -44,7 +43,7 @@ public class StreamVideo extends Activity {
         this.videoview.setOnPreparedListener(new OnPreparedListener() {
             public void onPrepared(MediaPlayer mediaPlayer) {
                 StreamVideo.this.dialog.dismiss();
-              StreamVideo.this.videoview.start();
+                StreamVideo.this.videoview.start();
             }
         });
 
@@ -61,6 +60,7 @@ public class StreamVideo extends Activity {
         super.onPause();
         StreamVideo.this.videoview.pause();
     }
+
     @Override
     public void onResume() {
         super.onResume();

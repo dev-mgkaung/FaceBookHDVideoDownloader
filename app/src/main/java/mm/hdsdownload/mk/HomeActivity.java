@@ -29,20 +29,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdView;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
-
 import java.io.File;
 import java.util.EmptyStackException;
 
 public class HomeActivity extends AppCompatActivity {
     Button facebookbtn;
     int count;
-    private InterstitialAd interstitialAd ;
     private int video_column_index;
     RelativeLayout relativelayout;
     LinearLayout linearLayout;
@@ -173,7 +165,7 @@ public class HomeActivity extends AppCompatActivity {
         ViewHolder() {
         }
     }
-    private AdView adView;
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -208,41 +200,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
         getSupportActionBar().setIcon(R.drawable.logo);
-        interstitialAd = new InterstitialAd(this, "966313450451266_973175566431721");
-        interstitialAd.setAdListener(new InterstitialAdListener() {
 
-            @Override
-            public void onError(Ad ad, AdError adError) {
-
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                interstitialAd.show();
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-
-            }
-        });
-        // load the ad
-        interstitialAd.loadAd();
         relativelayout=(RelativeLayout)findViewById(R.id.relativelayout);
         linearLayout=(LinearLayout)findViewById(R.id.linerlayout);
 
@@ -272,9 +230,6 @@ public class HomeActivity extends AppCompatActivity {
     }
     @Override
     protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
         super.onDestroy();
     }
 

@@ -20,14 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.AudienceNetworkAds;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
+
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.github.javiersantos.materialstyleddialogs.enums.Style;
 import com.htetznaing.xgetter.Model.XModel;
@@ -52,7 +45,6 @@ public class HdSdActivity extends AppCompatActivity {
     Button hdBtn;
     EditText editText;
     TextView filepath;
-    private AdView adView;
     ArrayList<XModel> Mymodel = new ArrayList<>();
 
     @Override
@@ -70,82 +62,12 @@ public class HdSdActivity extends AppCompatActivity {
         return fileName;
     }
 
-    public void facebookAds() {
-        adView = new AdView(this, "IMG_16_9_APP_INSTALL#966313450451266_966314493784495", AdSize.BANNER_HEIGHT_50);
-        // Find the Ad Container
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container2);
-
-        // Add the ad view to your activity layout
-        adContainer.addView(adView);
-
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Ad loaded callback
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-            }
-        });
-
-        // Request an ad
-        adView.loadAd();
-    }
-    private InterstitialAd interstitialAd ;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.generate_link);
-        AudienceNetworkAds.initialize(this);
-        interstitialAd = new InterstitialAd(this, "966313450451266_973175566431721");
-        interstitialAd.setAdListener(new InterstitialAdListener() {
 
-            @Override
-            public void onError(Ad ad, AdError adError) {
-
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                interstitialAd.show();
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-
-            }
-        });
-        // load the ad
-        interstitialAd.loadAd();
         Intent intent = getIntent();
         urls = intent.getStringExtra("url");
 
@@ -171,13 +93,11 @@ public class HdSdActivity extends AppCompatActivity {
                 done(Mymodel.get(1));
             }
         });
-        facebookAds();
+
     }
     @Override
     protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
+
         super.onDestroy();
     }
     public void generateDownloadLink(String strUrl) {

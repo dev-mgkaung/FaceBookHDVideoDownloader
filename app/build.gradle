@@ -42,8 +42,5 @@ dependencies {
     implementation 'com.leo.simplearcloader:simplearcloader:1.0.+'
     implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'com.facebook.android:audience-network-sdk:5.+'
 }
 
-//fvdownloader alias
-//https://johnmr922.github.io/socialpage/fbhs_policy.html

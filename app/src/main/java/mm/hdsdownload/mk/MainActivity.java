@@ -22,15 +22,8 @@ import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.InterstitialAd;
 import com.htetznaing.xgetter.Model.XModel;
 import com.htetznaing.xgetter.XGetter;
 import java.util.ArrayList;
@@ -44,45 +37,6 @@ public class MainActivity extends AppCompatActivity {
     XModel current_Xmodel =null;
     WebView webView;
     String url="";
-    private AdView adView;
-    public void facebookAds()
-    {
-        adView = new AdView(this, "IMG_16_9_APP_INSTALL#966313450451266_966314493784495", AdSize.BANNER_HEIGHT_50);
-        // Find the Ad Container
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
-
-        // Add the ad view to your activity layout
-        adContainer.addView(adView);
-
-
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Toast.makeText(MainActivity.this, "Error: " + adError.getErrorMessage(),
-                        Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Ad loaded callback
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-            }
-        });
-
-
-        // Request an ad
-        adView.loadAd();
-    }
 
     @SuppressLint("JavascriptInterface")
     @Override
@@ -91,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkPermissions();
 
-        facebookAds();
 
         webView = (WebView)findViewById(R.id.webview);
         if(checkConnection(this)) {
